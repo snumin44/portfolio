@@ -6,7 +6,7 @@
 ## 1. 비속어 탐지 모델 개발
 > 개인 프로젝트      
 > 언어: Python         
-> 기술 스택: Pytorch, Django, AWS SQS         
+> 기술 스택: Pytorch, Django         
 
 유저의 비속어를 필터링하는 모델입니다.          
 표현의 자유를 최대한 보장하기 위해 감탄사 또는 자신을 향한 비속어는 필터링되지 않도록 모델링했습니다.
@@ -44,6 +44,18 @@ __트러블 슈팅__
 > 개인 프로젝트            
 > 언어: Python           
 > 기술 스택: Pytorch          
+
+총 네 가지 방법으로 Topic Classification을 수행합니다. 
+다양한 
+
+__Classification__
+
+__Masked Language Modeling__
+
+__Matching__
+
+__Seq2Seq__
+
 
 ## 5. 금융/경제 분야 다국어 문장 임베딩 모델 개발
 
