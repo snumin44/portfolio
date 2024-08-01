@@ -6,7 +6,7 @@
 🍊 **INTRO**                
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 안녕하세요! NLP 엔지니어 **김민석**입니다.             
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인에 따라 다른 **언어적 특성**을 다룰 수 있는 모델을 만듭니다.                        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인의 **언어적 특성**을 다룰 수 있는 모델을 만듭니다.                        
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **금융, 의료, 법률 등 다양한 도메인**을 위한 모델을 개발한 경험이 있습니다. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
