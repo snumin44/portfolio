@@ -30,7 +30,7 @@
 > 블로그:            
 
 
-<img src="gif/hatespeech.gif" width="500" height="275" alt="Example GIF">
+<img src="gif/hatespeech.gif" width="450" height="250" alt="Example GIF">
 
 유저의 비속어를 필터링하는 모델입니다.          
 표현의 자유를 최대한 보장하기 위해 감탄사 또는 자신을 향한 비속어는 필터링되지 않도록 모델링했습니다.
