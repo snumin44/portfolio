@@ -1,9 +1,9 @@
 # 김민석의 포트폴리오
-(학사) 고려대학교 국어국문학과        
+(학사) 고려대학교 국어국문학과      
 (석사) 서울대학교 언어학과(컴퓨터 언어학 전공)
 ***           
 
-🍊 **INTRO**                
+#### 🍊 **INTRO**                
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 안녕하세요! NLP 엔지니어 **김민석**입니다.             
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인의 **언어적 특성**을 다룰 수 있는 모델을 만듭니다.                        
@@ -12,13 +12,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 
 
-🍊 **PROJECTS**
+#### 🍊 **PROJECTS**
 - [1. (표현의 자유를 보장하는) **비속어 탐지 모델 개발**](#1-표현의-자유를-보장하는-비속어-탐지-모델-개발)
 - [2. (한/영 의료 용어를 인식하는) **의료 분야 검색 모델 개발**](#2-한영-의료-용어를-인식하는-의료-분야-검색-모델-개발)
-- [3. (RAG 파이프라인에 기반한) **한국어 LLM 개발**](#3-rag-파이프라인에-기반한-한국어-llm-개발)
+- [3. (RAG 파이프라인을 이용한) **검색 기반 한국어 LLM 개발**](#3-rag-파이프라인을-이용한-검색-기반-한국어-llm-개발)
 - [4. (교통사고 과실을 계산하는) **웹기반 한국어 LLM 개발 참여**](#4-교통사고-과실을-계산하는-웹기반-한국어-llm-개발-참여)       
 - [5. (다양한 언어를 처리하는) **금융/경제 분야 문장 임베딩 모델 개발**](#5-다양한-언어를-처리하는-금융경제-분야-문장-임베딩-모델-개발)
-- [6. (4가지 방법론을 이용한) **뉴스 기사 토픽 분류 모델 개발**](#6-4가지-방법론을-이용한-뉴스-기사-토픽-분류-모델-개발) 
+- [6. (4가지 방법론을 통한) **뉴스 기사 토픽 분류 모델 개발**](#6-4가지-방법론을-통한-뉴스-기사-토픽-분류-모델-개발) 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
 
@@ -29,7 +29,7 @@
 > 코드:          
 > 블로그:            
 
-<img src="gif/hatespeech.gif" width="450" height="250" alt="Example GIF">
+<img src="gif/hatespeech.gif" width="450" height="250" alt="Hate Speech Detection (Demo)">
 
 유저의 비속어를 필터링하는 모델입니다.          
 표현의 자유를 보장하기 위해 감탄사 또는 자신을 향한 비속어는 필터링되지 않도록 모델링했습니다.
@@ -64,7 +64,7 @@
 > 블로그: 
 
 
-## 3. (RAG 파이프라인에 기반한) 한국어 LLM 개발  
+## 3. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM 개발  
 > 교통사고 과실 상계 분야            
 >
 
@@ -76,22 +76,34 @@
 
 
 
-## 6. (4가지 방법론을 이용한) 뉴스 기사 토픽 분류 모델 개발 
+## 6. (4가지 방법론을 통한) 뉴스 기사 토픽 분류 모델 개발 
 > 개인 프로젝트            
 > 언어: Python           
-> 기술 스택: Pytorch
-> 코드:
-> 블로그:      
+> 기술 스택: Pytorch             
+> 코드:          
+> 블로그:                        
 
-총 네 가지 방법으로 Topic Classification을 수행합니다. 
-다양한 
+총 네 가지 방법으로 Topic Classification을 수행했습니다.                    
+일반적인 Classification 방법 외에도 MLM, Matching, Seq2Seq 방식을 통해 분류 문제를 해결할 수 있습니다.
 
-__Classification__
+__(1) 방법 ① : Classification__
 
-__Masked Language Modeling__
+<img src="img/classification.PNG" width="450" height="250" alt="Classification">
 
-__Matching__
+- 일반적인 Classification 방법으로, Classifier를 이용해 . 
+- 학습 데이터가 부족할 경우 Fine-tuning 이 어렵다는 문제가 있습니다. 
 
-__Seq2Seq__
+__(2) 방법 ② : Masked Language Modeling__
 
+<img src="img/mlm.PNG" width="450" height="250" alt="Masked Language Modeling">
 
+- 일반적인 Classification의 방법입니다. 
+- 학습 데이터가 부족할 경우 학습이 어렵다
+
+__(3) 방법 ③ : Matching__
+
+<img src="img/entailment.PNG" width="450" height="250" alt="Masked Language Modeling">
+
+__(4) 방법 ④ : Seq2Seq__
+
+<img src="img/seq2seq.PNG" width="450" height="250" alt="Masked Language Modeling">
