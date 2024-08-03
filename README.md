@@ -40,7 +40,7 @@
 
 **(2) 모델 및 데이터 선택**
 - 유저의 채팅을 신속하게 처리하기 위해 **CNN + GRU 구조**의 모델을 선택했습니다.  
-- SmileGate, BEEP 등의 오픈 데이터를 사용했고, **검수**를 통해 위 사례에 해당하는 샘플의 레이블을 수정했습니다.   
+- SmileGate, BEEP! 등의 오픈 데이터를 사용했고, **검수**를 통해 위 사례에 해당하는 샘플의 레이블을 수정했습니다.   
 
 **(3) 초성 및 특수문자 비속어 처리**
 - 초성을 이용한 비속어 처리를 위해 **초성 단위**로 모델을 학습했습니다.  
@@ -55,14 +55,12 @@
 - 데이터를  레이블을 수정해 
 - 
 
-      
 ## 2. (한/영 의료 용어를 인식하는) 의료 분야 검색 모델 개발  
 > 개인 프로젝트, 석사논문      
 > 언어: Python         
 > 기술 스택: Pytorch, Django          
 > 코드:          
 > 블로그: 
-
 
 ## 3. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM 개발  
 > 교통사고 과실 상계 분야            
@@ -83,26 +81,31 @@
 > 코드:          
 > 블로그:                        
 
-총 네 가지 방법으로 Topic Classification을 수행했습니다.                    
-일반적인 Classification 방법 외에도 MLM, Matching, Seq2Seq 방식을 통해 분류 문제를 해결할 수 있습니다.
+총 네 가지 방법으로 Sequence Classification을 수행했습니다.                    
+일반적인 Classification 방법 외에도 MLM, Matching, Seq2Seq 방식을 통해 분류 문제를 해결했습니다.
 
-__(1) 방법 ① : Classification__
+__(1) 문제 의식__
 
 <img src="img/classification.PNG" width="450" height="250" alt="Classification">
 
-- 일반적인 Classification 방법으로, Classifier를 이용해 . 
-- 학습 데이터가 부족할 경우 Fine-tuning 이 어렵다는 문제가 있습니다. 
+- Classifier를 이용하는 일반적인 Sequence Classification은 **대량의 학습 데이터를** 필요로 합니다. 
+- BERT 모델에 기반한 방법론이므로 최근 발전하는 **디코더 모델**에 그대로 적용할 수 없습니다.
 
-__(2) 방법 ② : Masked Language Modeling__
+__(2) 대안 ① : Masked Language Modeling__
 
 <img src="img/mlm.PNG" width="450" height="250" alt="Masked Language Modeling">
 
-- 일반적인 Classification의 방법입니다. 
-- 학습 데이터가 부족할 경우 학습이 어렵다
+- **Pattern Exploiting Training(PET)** 을 통해 MLM 문제를 Classification 문제로 전환했습니다. 
+  - "(문장)의 주제는 \[MASK\]이다" 등의 **패턴**에서 \[MASK\]에 대한 모든 토큰의 확률을 계산했습니다.   
+  - "생활 → 생활/문화" 처럼 토큰을 레이블에 연결하는 **Verbalizer**를 이용해 각 레이블의 확률을 종합했습니다.
+- 다양한 패턴과 Verbalizer를 실험하며 **최적의 성능**을 내는 조합을 탐색했습니다.
+- 사전학습과 유사한 튜닝 방식을 사용함으로써  
 
-__(3) 방법 ③ : Matching__
+__(3) 대안 ② : Matching__
 
 <img src="img/entailment.PNG" width="450" height="250" alt="Masked Language Modeling">
+
+
 
 __(4) 방법 ④ : Seq2Seq__
 
