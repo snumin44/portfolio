@@ -99,12 +99,17 @@ __(2) 대안 ① : Masked Language Modeling__
   - "(문장)의 주제는 \[MASK\]이다" 등의 **패턴**에서 \[MASK\]에 대한 모든 토큰의 확률을 계산했습니다.   
   - "생활 → 생활/문화" 처럼 토큰을 레이블에 연결하는 **Verbalizer**를 이용해 각 레이블의 확률을 종합했습니다.
 - 다양한 패턴과 Verbalizer를 실험하며 **최적의 성능**을 내는 조합을 탐색했습니다.
-- 사전학습과 유사한 튜닝 방식을 사용함으로써  
+- **사전학습과 유사한 튜닝 방식(MLM)** 을 사용함으로써 동일한 크기의 데이터로 분류 성능을 향상시켰습니다.  
 
 __(3) 대안 ② : Matching__
 
-<img src="img/entailment.PNG" width="450" height="250" alt="Masked Language Modeling">
+<img src="img/entailment.PNG" width="450" height="250" alt="Entailment">
 
+- 템플릿을 이용해 Multi-class Classification 문제를 **Binary Classification** 문제로 전환했습니다. 
+  - "(문장) \[SEP\] 이 문장의 주제는 (레이블)이다"의 구성에서 참일 확률이 가장 높은 레이블을 찾는 방식입니다.   
+  - 동일한 문장에 대해 여러 레이블의 확률을 비교해야하므로, 한 문장에서 비롯된 구성들을 묶어서 처리했습니다.
+- 다양한 템플릿을 실험하며 **최적의 성능**을 내는 템플릿을 탐색했습니다.
+- **사전학습과 유사한 튜닝 방식(NSP)** 을 사용함으로써 동일한 크기의 데이터로 분류 성능을 향상시켰습니다.  
 
 
 __(4) 방법 ④ : Seq2Seq__
