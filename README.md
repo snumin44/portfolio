@@ -69,7 +69,9 @@
 > 언어: Python            
 > 기술 스택: Pytorch, Django          
 > 모델 코드:                   
-> 블로그:         
+> 블로그:            
+
+<img src="gif/fintext_search.gif" width="480" height="270" alt="FinText Search Engine (Demo)">
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM 개발  
 > 개인 프로젝트         
