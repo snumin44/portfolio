@@ -80,7 +80,7 @@
 > 모델 코드:                 
 > 블로그:        
 
-<img src="gif/rag.gif" width="480" height="270" alt="RAG">
+<img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
 
 ## 5. (교통사고 과실을 계산하는) 웹기반 한국어 LLM 개발 참여
 > 팀 프로젝트     
