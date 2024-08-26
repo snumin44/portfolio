@@ -64,6 +64,8 @@
 > 모델 코드:                 
 > 블로그:      
 
+<img src="gif/medical_search.gif" width="480" height="280" alt="Medical Search Engine (Demo)">
+
 ## 3. (다양한 언어를 처리하는) 금융 분야 문장 임베딩 모델 개발
 > 개인 프로젝트         
 > 언어: Python            
