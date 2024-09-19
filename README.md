@@ -70,23 +70,31 @@
 - 한국의 의료 텍스트는 **한·영 혼용체(code-mixed text)** 로 이루어져 있습니다.           
 - 동일한 질병이 다양한 용어로 표현되는 경우가 많아 일반적인 검색 모델로는 처리가 어렵습니다.
 ```
-- 예) 고혈압 = Hypertension, High Blood Pressure 등         
+예) 고혈압 = Hypertension = High Blood Pressure = HTN = HBP
+    → "고혈압으로 인한 신부전"
+    → "HTN으로 인한 renal failure"     
 ```
+
 **ⅱ. 한·영 의료 용어 정렬 (Post-training)**
-- **한국보건의료용어표준(KOSTOM)** 은 한·영 의료 용어 사전으로, 각 질병마다 고유한 코드를 부여하고 있습니다.
-- 동일한 코드를 지니는 용어의 유사도를 높임으로써, 모델이 한·영 동의어를 인식할 수 있도록 했습니다.
-- 
-  
-  
+- 동일한 병명 간의 유사도를 높임으로써, 모델이 **한·영 동의어**를 인식 및 처리할 수 있도록 했습니다.
+- **한국보건의료용어표준(KOSTOM)** 의 병명과 코드를 각각 데이터와 레이블로 사용했습니다.
+-  유사도 학습에는 Metric-Learning 의 손실 함수 중 하나인 **Multi Similarity Loss** 를 사용했습니다.  
+```
+예) C3843080 || 고혈압 질환 
+    C3843080 || Hypertension
+    C3843080 || High Blood Pressure
+    C3843080 || HTN
+    C3843080 || HBP
+```
+
 **ⅲ. 검색 모델 학습 (Fine-tuning)**
+- AI HUB
 - 
--
--
-
-
-**4. 테스트용 웹 개발**
+- 직접 구축한 Dense Passage Retrieval(DPR)-KO 코드로 
 
 **5. 문제 해결** 
+
+
 
 &nbsp;&nbsp;&nbsp;           
 &nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
