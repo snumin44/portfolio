@@ -58,7 +58,7 @@
 > 개인 프로젝트     
 > 언어: Python         
 > 기술 스택: Pytorch, Django          
-> 모델 코드:                 
+> 모델 코드: [https://github.com/snumin44/SapBERT-KO-EN](https://github.com/snumin44/SapBERT-KO-EN)                
 > 블로그:      
 
 <img src="gif/medical_search.gif" width="480" height="280" alt="Medical Search Engine (Demo)">
@@ -88,13 +88,20 @@
 ```
 
 **ⅲ. 검색 모델 학습 (Fine-tuning)**
-- AI HUB
-- 
-- 직접 구축한 Dense Passage Retrieval(DPR)-KO 코드로 
+- 직접 구축한 **[Dense Passage Retrieval(DPR)-KO](https://github.com/snumin44/DPR-KO)** 코드를 이용해 Bi-Encoder 구조의 검색 모델을 학습했습니다.  
+- Fine-tuning 을 위한 데이터로 AI HUB의 '[초거대 AI 헬스케어 질의 응답 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71762)'를 사용했습니다.
+- 텍스트 내 한국어 병명을 함께 제공된 영어 병명으로 대체해 한·영 혼용체 데이터를 증강했습니다.
+```
+예) 한국어 병명: 고혈압
+    영어 병명: Hypertenstion
+    질의 (원본): 아버지가 고혈압인데 그게 뭔지 모르겠어. 고혈압이 뭔지 설명좀 해줘.
+    질의 (증강): 아버지가 Hypertenstion 인데 그게 뭔지 모르겠어. Hypertenstion 이 뭔지 설명좀 해줘.
+``` 
 
-**5. 문제 해결** 
-
-
+**ⅳ. 문제 해결** 
+- 이렇게 학습한 검색 모델로 의료 분야의 **한·영 혼용체(code-mixed text)** 텍스트를 다룰 수 있습니다.   
+- '한·영 혼용체 질의'에 대응하는 '한국어 텍스트'가 잘 검색되는 것을 위 데모에서 확인할 수 있습니다.
+- 반대로 '한국어 질의'에 대응하는 '한·영 혼용체 텍스트'를 검색하는 것도 가능한 모델입니다. 
 
 &nbsp;&nbsp;&nbsp;           
 &nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
