@@ -103,6 +103,11 @@
 - '한·영 혼용체 질의'에 대응하는 '한국어 텍스트'가 잘 검색되는 것을 위 데모에서 확인할 수 있습니다.
 - 반대로 '한국어 질의'에 대응하는 '한·영 혼용체 텍스트'를 검색하는 것도 가능한 모델입니다. 
 
+**ⅴ. 기타 문제 해결**
+- **Multi Similarity Loss**
+- 유사도 temperature
+-
+
 &nbsp;&nbsp;&nbsp;           
 &nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
 &nbsp;&nbsp;&nbsp; 
