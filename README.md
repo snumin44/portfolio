@@ -77,7 +77,7 @@
 
 **ⅱ. 한·영 의료 용어 정렬 (Post-training)**
 - 동일한 병명 간의 유사도를 높임으로써, 모델이 **한·영 동의어**를 인식 및 처리할 수 있도록 했습니다.
-- **한국보건의료용어표준(KOSTOM)** 의 병명과 코드를 각각 데이터와 레이블로 사용했습니다.
+- **한국보건의료용어표준(KOSTOM)** 의 한·영 병명과 코드를 각각 데이터와 레이블로 사용했습니다.
 -  유사도 학습에는 Metric-Learning 의 손실 함수 중 하나인 **Multi Similarity Loss** 를 사용했습니다.  
 ```
 예) C3843080 || 고혈압 질환 
@@ -88,7 +88,7 @@
 ```
 
 **ⅲ. 검색 모델 학습 (Fine-tuning)**
-- 직접 구축한 **[Dense Passage Retrieval(DPR)-KO](https://github.com/snumin44/DPR-KO)** 코드를 이용해 Bi-Encoder 구조의 검색 모델을 학습했습니다.  
+- 직접 구현한 **[Dense Passage Retrieval(DPR)-KO](https://github.com/snumin44/DPR-KO)** 코드를 이용해 Bi-Encoder 구조의 검색 모델을 학습했습니다.  
 - Fine-tuning 을 위한 데이터로 AI HUB의 '[초거대 AI 헬스케어 질의 응답 데이터](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71762)'를 사용했습니다.
 - 텍스트 내 한국어 병명을 함께 제공된 영어 병명으로 대체해 한·영 혼용체 데이터를 증강했습니다.
 ```
@@ -100,13 +100,19 @@
 
 **ⅳ. 문제 해결** 
 - 이렇게 학습한 검색 모델로 의료 분야의 **한·영 혼용체(code-mixed text)** 텍스트를 다룰 수 있습니다.   
-- '한·영 혼용체 질의'에 대응하는 '한국어 텍스트'가 잘 검색되는 것을 위 데모에서 확인할 수 있습니다.
-- 반대로 '한국어 질의'에 대응하는 '한·영 혼용체 텍스트'를 검색하는 것도 가능한 모델입니다. 
+- 위 데모에서 '한·영 혼용체 질의'에 대응하는 '한국어 텍스트'가 잘 검색되는 것을 확인할 수 있습니다.
+- 반대로 '한국어 질의'에 대응하는 '한·영 혼용체 텍스트'를 검색하는 것도 가능합니다.
 
 **ⅴ. 기타 문제 해결**
-- **Multi Similarity Loss**
-- 유사도 temperature
--
+- Post-training 단계에서 **Multi Similarity Loss** 가 수렴하지 않고 발산하는 문제가 발생했습니다.
+  - 유사도 차이를 조절하기 위해 나누어주었던 **temperature** 로 인해 유사도 값이 너무 커져 발생한 문제였습니다.
+  - 유사도 값이 지나치게 커서 Multi Similarity Loss 내의 **지수함수**가 inf 로 발산했던 것입니다.   
+- temperature 를 0.05 에서 1로 변경함으로써 모델의 학습을 안정화시킬 수 있었습니다. 
+```python
+문제 코드)
+pos_exp = torch.exp(-self.scale_pos * ((pos_matrix / temperature) - self.threshold))
+pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
+```
 
 &nbsp;&nbsp;&nbsp;           
 &nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
@@ -121,6 +127,11 @@
 > 블로그:            
 
 <img src="gif/fintext_search.gif" width="480" height="270" alt="FinText Search Engine (Demo)">
+
+금융 분야 텍스트를 검색하는 모델입니다.     
+한·영 혼용체로 이루어진 의료 텍스트를 처리하기 위해 한·영 병명을 인식할 수 있도록 했습니다.    
+
+
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
 > 개인 프로젝트         
