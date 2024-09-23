@@ -123,27 +123,34 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 > 개인 프로젝트         
 > 언어: Python            
 > 기술 스택: Pytorch, Django          
-> 모델 코드:                   
+> 모델 코드: [https://github.com/snumin44/FinCSE-Multilingual](https://github.com/snumin44/FinCSE-Multilingual)                  
 > 블로그:            
 
 <img src="gif/fintext_search.gif" width="480" height="270" alt="FinText Search Engine (Demo)">
 
 금융 분야 텍스트를 검색하는 모델입니다.     
-세계 각국의 금융 텍스트를 처리하기 위해 다양한 언어를 처리할 수 있도록 했습니다.     
+세계 각국의 금융 텍스트를 검색하기 위해 다양한 언어를 처리할 수 있도록 했습니다.     
 
 **ⅰ. 문제 의식**
-- 한국 은행 내부 LLM을 구축하는 과제에 참여하며 금융계에서 다양한 언어의 문서를 다룬다는 사실을 알게되었습니다.   
-- 
+- 한국은행 LLM  구축 과제에 참여하며 금융 현장에서 **다양한 언어**를 다룬다는 사실을 알게되었습니다.   
+- 하지만 금융 분야처럼 전문적인 도메인의 경우 한국어 단일 언어 모델조차 희소한 것이 현실입니다. 
 
 **ⅱ. 학습 데이터 선택**
-- Fine-tuning 을 위한 데이터로 AI HUB의 ''를 사용했습니다.
-- 한국어를 중심으로 
-
+- 금융 분야 다국어 임베딩 모델을 학습하기 위해 AI HUB의 '[금융 분야 다국어 병렬 말뭉치 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71782)'를 사용했습니다.
+- **한국어-외국어(영어, 중국어, 일본어, 인도네시아어, 베트남어)** 구성의 금융 분야 병렬 문장 데이터입니다.   
+-  
+```
+예) 이처럼 금융상품의 경우 판매단계에서 금융회사의 ... 적합한 상품의 권유는 기본이고 필수라 할 것이다. (한국어)
+    像这样，金融商品在销售阶段，提供金融公司适当的信息和推荐适合金融消费者的商品是基本，也是必须的。(중국어)
 ```
 
-```
+**ⅲ. 모델 구현 및 학습**
+- 
 
-**ⅲ. 시발**
+
+**ⅳ. 문제 해결** 
+
+**ⅴ. 기타 문제 해결**
 
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
@@ -154,6 +161,13 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 > 블로그:        
 
 <img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
+
+
+
+
+
+
+
 
 ## 5. (교통사고 과실을 계산하는) 웹기반 한국어 LLM 개발 참여
 > 팀 프로젝트     
