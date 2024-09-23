@@ -129,8 +129,21 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 <img src="gif/fintext_search.gif" width="480" height="270" alt="FinText Search Engine (Demo)">
 
 금융 분야 텍스트를 검색하는 모델입니다.     
-한·영 혼용체로 이루어진 의료 텍스트를 처리하기 위해 한·영 병명을 인식할 수 있도록 했습니다.    
+세계 각국의 금융 텍스트를 처리하기 위해 다양한 언어를 처리할 수 있도록 했습니다.     
 
+**ⅰ. 문제 의식**
+- 한국 은행 내부 LLM을 구축하는 과제에 참여하며 금융계에서 다양한 언어의 문서를 다룬다는 사실을 알게되었습니다.   
+- 
+
+**ⅱ. 학습 데이터 선택**
+- Fine-tuning 을 위한 데이터로 AI HUB의 ''를 사용했습니다.
+- 한국어를 중심으로 
+
+```
+
+```
+
+**ⅲ. 시발**
 
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
