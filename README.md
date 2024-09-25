@@ -20,7 +20,7 @@
 ## 1. (표현의 자유를 보장하는) 비속어 탐지 모델
 > 개인 프로젝트      
 > 언어: Python         
-> 기술 스택: Pytorch, Django          
+> 기술 스택: Pytorch        
 > 모델 코드:          
 > 블로그:            
 
@@ -57,7 +57,7 @@
 ## 2. (한/영 의료 용어를 인식하는) 의료 분야 검색 모델  
 > 개인 프로젝트     
 > 언어: Python         
-> 기술 스택: Pytorch, Django          
+> 기술 스택: Pytorch, Faiss        
 > 모델 코드: [https://github.com/snumin44/SapBERT-KO-EN](https://github.com/snumin44/SapBERT-KO-EN)                
 > 블로그:      
 
@@ -122,7 +122,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 ## 3. (다양한 언어를 처리하는) 금융 분야 문장 검색 모델
 > 개인 프로젝트         
 > 언어: Python            
-> 기술 스택: Pytorch, Django          
+> 기술 스택: Pytorch, Faiss         
 > 모델 코드: [https://github.com/snumin44/FinCSE-Multilingual](https://github.com/snumin44/FinCSE-Multilingual)                  
 > 블로그:            
 
@@ -137,9 +137,9 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 - 금융 분야를 위한 **임베딩 모델**이 있다면 일반적인 검색은 물론, LLM을 보완하는 기능도 할 수 있습니다.     
 
 **ⅱ. 학습 데이터 선택**
-- 금융 분야 다국어 임베딩 모델을 학습하기 위해 AI HUB의 '[금융 분야 다국어 병렬 말뭉치 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71782)'를 사용했습니다.
+- 다국어 임베딩 모델을 학습하기 위해 AI HUB의 '[금융 분야 다국어 병렬 말뭉치 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71782)'를 사용했습니다.
 - **'한국어-외국어(영어, 중국어, 일본어, 인도네시아어, 베트남어)'** 구성의 병렬 문장입니다.
-- 다른 언어의 임베딩도 Multilingual PLM의 Fine-tuning 과정에서 함께 조정됩니다.    
+  - 다른 언어의 임베딩도 Multilingual PLM의 Fine-tuning 과정에서 함께 조정됩니다.    
 ```
 예) 이처럼 금융상품의 경우 판매단계에서 금융회사의 ... 상품의 권유는 기본이고 필수라 할 것이다. (한국어)
     像这样，金融商品在销售阶段，提供金融公司适当的信息和推荐适合金融消费者的商品是基本，也是必须的。(중국어)
@@ -148,7 +148,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 **ⅲ. 모델 구현 및 학습**
 - 직접 구현한 **[SimCSE-KO](https://github.com/snumin44/SimCSE-KO)** 코드를 수정해 **Single Encoder 구조**의 임베딩 모델을 학습했습니다.
   - 공개된 SimCSE 코드와 달리 Mulilingual PLM 도 학습할 수 있는 코드입니다.
-  - 기존의 코드가 다른 버전의 transformer 라이브러리와 충돌해 이를 최대한 완화했습니다. 
+  - 기존의 코드가 다른 버전의 transformer 라이브러리와 충돌해 이 문제를 최대한 완화했습니다. 
 - 병렬 문장 간의 유사도는 높이고 배치(batch) 내 다른 문장 간의 유사도는 낮추는 방식으로 학습했습니다.
 
 **ⅳ. 문제 해결** 
@@ -157,15 +157,16 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 - 병렬 문장의 언어 이외에 Multilingual PLM 에 **사전 학습된 다른 언어**의 텍스트도 처리할 수 있습니다.  
 
 **ⅴ. 기타 문제 해결**
-- 
-- ㅗㅗ
+- 문장 임베딩 모델의 성능은 보통 **STS(Sematic Textual Similarity)** 데이터 셋을 이용해 평가합니다.
+  - 하지만 금융 텍스트로 학습한 임베딩 모델을 일반적인 STS 데이터 셋으로 평가하는 것은 적절하지 않습니다.      
+- 이 문제를 해결하기 위해 모델의 평가 방식을 **문장 검색(Sentence Retrieval)** 으로 변경했습니다. 
 - ㅗㅗ
 
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
 > 개인 프로젝트         
 > 언어: Python                
-> 기술 스택: Pytorch, Django            
+> 기술 스택: Pytorch, Faiss       
 > 모델 코드:                 
 > 블로그:        
 
