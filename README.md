@@ -1,13 +1,13 @@
 # 김민석의 NLP 포트폴리오
 
-#### 🍊 **INTRO**                
+#### 📚 **INTRO**                
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 안녕하세요! NLP 엔지니어 **김민석**입니다.             
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 도메인의 **언어적 특성**을 다룰 수 있는 모델을 만듭니다.                        
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 금융, 의료, 법률 등 **다양한 도메인**을 위한 모델을 개발한 경험이 있습니다. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
 
-#### 🍊 **PROJECTS**
+#### 📚 **PROJECTS**
 - [1. (표현의 자유를 보장하는) **비속어 탐지 모델**](#1-표현의-자유를-보장하는-비속어-탐지-모델)
 - [2. (한/영 의료 용어를 인식하는) **의료 분야 검색 모델**](2-한영-의료-용어를-인식하는-의료-분야-검색-모델)
 - [3. (다양한 언어를 처리하는) **금융 분야 문장 검색 모델**](3-다양한-언어를-처리하는-금융-분야-문장-검색-모델)
@@ -50,9 +50,13 @@
 - **필터링의 기준을 조정**함으로써 비속어가 포함되기만 하면 무조건 필터링되는 문제를 완화했습니다.   
 - 이를 통해 상대방을 향한 비속어는 규제하는 한편, 개인의 **표현의 자유**를 최대한 보장할 수 있습니다. 
 
-&nbsp;&nbsp;&nbsp;           
-&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
-&nbsp;&nbsp;&nbsp; 
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;    
 
 ## 2. (한/영 의료 용어를 인식하는) 의료 분야 검색 모델  
 > 개인 프로젝트     
@@ -114,9 +118,13 @@ pos_exp = torch.exp(-self.scale_pos * ((pos_matrix / temperature) - self.thresho
 pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 ```
 
-&nbsp;&nbsp;&nbsp;           
-&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
-&nbsp;&nbsp;&nbsp; 
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;          
 
 
 ## 3. (다양한 언어를 처리하는) 금융 분야 문장 검색 모델
@@ -140,8 +148,8 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 - 다국어 임베딩 모델을 학습하기 위해 AI HUB의 '[금융 분야 다국어 병렬 말뭉치 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71782)'를 사용했습니다.
 - **'한국어-외국어(영어, 중국어, 일본어, 인도네시아어, 베트남어)'** 구성의 병렬 문장입니다. 
 ```
-예) 이처럼 금융상품의 경우 판매단계에서 금융회사의 ... 상품의 권유는 기본이고 필수라 할 것이다. (한국어)
-    像这样，金融商品在销售阶段，提供金融公司适当的信息和推荐适合金融消费者的商品是基本，也是必须的。(중국어)
+예) 이처럼 금융상품의 경우 판매단계에서 금융회사의 ... 상품의 권유는 기본이고 필수라 할 것이다.(한국어)
+    像这样，金融商品在销售阶段，提供金融公司适当的信息和推荐适合金融消费者的商品是基本，也是必须的.(중국어)
 ```
 
 **ⅲ. 모델 구현 및 학습**
