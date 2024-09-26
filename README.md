@@ -175,24 +175,49 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
   - 한국어 문장을 질의로 할 때 동일한 의미의 다국어 문장을 검색하는 방식입니다.
   - 총 50,000 개의 병렬 문장을 이용했고 **Faiss** 를 이용해 빠른 성능 평가가 가능하도록 했습니다.
 
-&nbsp;&nbsp;&nbsp;           
-&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
-&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;  
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;   
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
 > 개인 프로젝트         
 > 언어: Python                
 > 기술 스택: Pytorch, Faiss       
-> 모델 코드:                 
+> 모델 코드: https://github.com/snumin44/DPR-KO/blob/main/example/generation.py                
 > 블로그:        
 
 <img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
 
+금융 분야 텍스트를 검색하는 모델입니다.     
+세계 각국의 금융 텍스트를 검색하기 위해 다양한 언어를 처리할 수 있도록 했습니다.   
+
+**ⅰ. 문제 의식**
 
 
 
+**ⅱ. 검색 모델 구현 및 학습(Fine-Tuning)**
 
 
+**ⅲ. 생성 모델 학습 (Instruction-Tuning)**
+
+
+**ⅳ. RAG 파이프라인 구현** 
+
+
+
+&nbsp;&nbsp;&nbsp;  
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;   
 
 
 ## 5. (교통사고 과실을 계산하는) 웹기반 한국어 LLM 개발 참여
