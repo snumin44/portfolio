@@ -48,8 +48,9 @@
             
 **ⅴ. 문제 해결**     
 - **필터링의 기준을 조정**함으로써 비속어가 포함되기만 하면 무조건 필터링되는 문제를 완화했습니다.   
-- 이를 통해 상대방을 향한 비속어는 규제하는 한편, 개인의 **표현의 자유**를 최대한 보장할 수 있습니다. 
-
+- 이를 통해 상대방을 향한 비속어는 규제하는 한편, 개인의 **표현의 자유**를 최대한 보장할 수 있습니다.
+  
+&nbsp;&nbsp;&nbsp;  
 <div align=right> 
             
   📚[PROJECTS 로 돌아가기](#-projects)   
@@ -117,7 +118,7 @@
 pos_exp = torch.exp(-self.scale_pos * ((pos_matrix / temperature) - self.threshold))
 pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 ```
-
+&nbsp;&nbsp;&nbsp;  
 <div align=right> 
             
   📚[PROJECTS 로 돌아가기](#-projects)   
