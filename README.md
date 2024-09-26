@@ -193,8 +193,8 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 
 <img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
 
-금융 분야 텍스트를 검색하는 모델입니다.     
-세계 각국의 금융 텍스트를 검색하기 위해 다양한 언어를 처리할 수 있도록 했습니다.   
+검색된 위키피디아 문서로부터 텍스트를 생성하는 모델입니다.     
+LLM    
 
 **ⅰ. 문제 의식**
 
