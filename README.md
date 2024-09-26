@@ -138,8 +138,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 
 **ⅱ. 학습 데이터 선택**
 - 다국어 임베딩 모델을 학습하기 위해 AI HUB의 '[금융 분야 다국어 병렬 말뭉치 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71782)'를 사용했습니다.
-- **'한국어-외국어(영어, 중국어, 일본어, 인도네시아어, 베트남어)'** 구성의 병렬 문장입니다.
-  - 다른 언어의 임베딩도 Multilingual PLM의 Fine-tuning 과정에서 함께 조정됩니다.    
+- **'한국어-외국어(영어, 중국어, 일본어, 인도네시아어, 베트남어)'** 구성의 병렬 문장입니다. 
 ```
 예) 이처럼 금융상품의 경우 판매단계에서 금융회사의 ... 상품의 권유는 기본이고 필수라 할 것이다. (한국어)
     像这样，金融商品在销售阶段，提供金融公司适当的信息和推荐适合金融消费者的商品是基本，也是必须的。(중국어)
@@ -147,21 +146,29 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 
 **ⅲ. 모델 구현 및 학습**
 - 직접 구현한 **[SimCSE-KO](https://github.com/snumin44/SimCSE-KO)** 코드를 수정해 **Single Encoder 구조**의 임베딩 모델을 학습했습니다.
-  - 공개된 SimCSE 코드와 달리 Mulilingual PLM 도 학습할 수 있는 코드입니다.
+  - Princeton NLP의 SimCSE 코드와 달리 Mulilingual PLM 도 학습할 수 있는 코드입니다.
   - 기존의 코드가 다른 버전의 transformer 라이브러리와 충돌해 이 문제를 최대한 완화했습니다. 
-- 병렬 문장 간의 유사도는 높이고 배치(batch) 내 다른 문장 간의 유사도는 낮추는 방식으로 학습했습니다.
 
 **ⅳ. 문제 해결** 
 - 이상의 데이터와 코드로 학습한 임베딩 모델로 금융 분야의 **다국어 텍스트**를 다룰 수 있습니다.   
 - 위 데모에서 '한국어 질의'에 대응하는 '다국어 텍스트'가 잘 검색되는 것을 확인할 수 있습니다.
 - 병렬 문장의 언어 이외에 Multilingual PLM 에 **사전 학습된 다른 언어**의 텍스트도 처리할 수 있습니다.  
+```
+예) 한국어 문장:
+         ↕
+    독일어 문장:
+    독일어 문장:
+```
 
 **ⅴ. 기타 문제 해결**
-- 문장 임베딩 모델의 성능은 보통 **STS(Sematic Textual Similarity)** 데이터 셋을 이용해 평가합니다.
-  - 하지만 금융 텍스트로 학습한 임베딩 모델을 일반적인 STS 데이터 셋으로 평가하는 것은 적절하지 않습니다.      
+- 모델의 성능의 평가할 금융 분야의 **STS(Sematic Textual Similarity)** 데이터 셋이 없다는 문제가 있었습니다. 
 - 이 문제를 해결하기 위해 모델의 평가 방식을 **문장 검색(Sentence Retrieval)** 으로 변경했습니다. 
-- ㅗㅗ
+  - 한국어 문장을 질의로 할 때 동일한 의미의 다국어 문장을 검색하는 방식입니다.
+  - 총 50,000 개의 병렬 문장을 이용했고 **Faiss** 를 이용해 빠른 성능 평가가 가능하도록 했습니다.
 
+&nbsp;&nbsp;&nbsp;           
+&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
+&nbsp;&nbsp;&nbsp; 
 
 ## 4. (RAG 파이프라인을 이용한) 검색 기반 한국어 LLM  
 > 개인 프로젝트         
