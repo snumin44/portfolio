@@ -172,7 +172,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 **ⅴ. 기타 문제 해결**
 - 모델의 성능의 평가할 금융 분야의 **STS(Sematic Textual Similarity)** 데이터 셋이 없다는 문제가 있었습니다. 
 - 이 문제를 해결하기 위해 모델의 평가 방식을 **문장 검색(Sentence Retrieval)** 으로 변경했습니다. 
-  - 한국어 문장을 질의로 할 때 동일한 의미의 다국어 문장을 검색하는 방식입니다.
+  - 한국어 금융 문장을 질의로 할 때 동일한 의미의 다국어 문장을 검색하는 방식입니다.
   - 총 50,000 개의 병렬 문장을 이용했고 **Faiss** 를 이용해 빠른 성능 평가가 가능하도록 했습니다.
 
 &nbsp;&nbsp;&nbsp;  
@@ -194,21 +194,28 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 <img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
 
 검색된 위키피디아 문서로부터 텍스트를 생성하는 모델입니다.     
-LLM    
+RAG 파이프라인에 기반해 모델이 사실에 부합하는 텍스트를 생성할 수 있도록 했습니다.   
 
 **ⅰ. 문제 의식**
-
-
+- 최근 Chat-GPT 등의 **LLM**이 정보를 얻는 하나의 소스(source)가 되고 있습니다.  
+- LLM의 효용을 최대화하기 위해서는 잘못된 정보를 생성하는 **Hallucination 문제**를 완화할 필요가 있습니다.
+- Hallucination을 완화하는 방안으로, 검색 결과를 참고해 텍스트를 생성하는 **RAG 파이프라인**을 구축했습니다.    
 
 **ⅱ. 검색 모델 구현 및 학습(Fine-Tuning)**
-
+- 생성 모델이 참고할 문서를 검색하는 모델로 직접 구현한 **[Dense Passage Retrieval(DPR)-KO](https://github.com/snumin44/DPR-KO)** 을 이용했습니다.
+  - 문서와 질의의 인덱스 기반 평가 ~ 
+  - Hard Negative 구현 
+- 
 
 **ⅲ. 생성 모델 학습 (Instruction-Tuning)**
-
+- Polyglot-Ko 1.2B 모델의 한국어 Alpaca 데이터 셋으로  
+- ㅇㅇ
 
 **ⅳ. RAG 파이프라인 구현** 
 
+**ⅴ. 문제 해결**
 
+**ⅵ. 기타 문제 해결**
 
 &nbsp;&nbsp;&nbsp;  
 <div align=right> 
@@ -246,9 +253,14 @@ LLM
 - **직접 구축**한 데이터셋으로 LLM을 튜닝해 교통사고 과실에 관한 질문에 응답할 수 있도록 했습니다. 
 - **교통사고에 관한 지식**을 다룰 있도록 함으로써 기존에 공개된 LLM과 차별화된 한국어 LLM을 구축했습니다.    
   
-&nbsp;&nbsp;&nbsp;           
-&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
-&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;  
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;   
 
 ## 6. (4가지 방법론을 통한) 뉴스 기사 토픽 분류 모델 
 > 개인 프로젝트            
@@ -295,6 +307,11 @@ __(4) 대안 ③ : Seq2Seq__
   - 마지막 토큰의 정보까지 온전히 활용하기 위해 문장의 끝에 **특수 토큰**을 추가했습니다.
 - **디코더 모델**에 적용할 수 있는 방법으로 Classification을 수행했습니다.         
 
-&nbsp;&nbsp;&nbsp;           
-&nbsp;&nbsp;&nbsp; 🍊[PROJECTS 로 돌아가기](#-projects)                   
-&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;  
+<div align=right> 
+            
+  📚[PROJECTS 로 돌아가기](#-projects)   
+  
+</div>
+&nbsp;&nbsp;&nbsp;        
+&nbsp;&nbsp;&nbsp;   
