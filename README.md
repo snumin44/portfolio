@@ -73,10 +73,10 @@
   - **감탄사**나 **자신을 향한 비속어**가 포함된 문장을 중심으로 데이터를 증강했습니다. 
   - 이를 통해 위 데모에서처럼 모델에게 필터링 기준을 보다 분명히 학습시킬 수 있었습니다.  
 ```
-예) 시발 내 보석이!!!!
-    이거 1장만 깨고 가만히 놔뒀는데 ㅁㅊ 다시 다 깨야되나
-    그 지랄같은 초기버전으로도 재미는 있었어 재미는
-    개같이 노한글 ㅜㅜ
+예) 시발 내 보석이!!!! → Hate Speech 'False'
+    이거 1장만 깨고 가만히 놔뒀는데 ㅁㅊ 다시 다 깨야되나 → Hate Speech 'False'
+    그 지랄같은 초기버전으로도 재미는 있었어 재미는 → Hate Speech 'False'
+    개같이 노한글 ㅜㅜ → Hate Speech 'False'
 ```
   
 &nbsp;&nbsp;&nbsp;  
@@ -194,10 +194,10 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 ```
 예) 한국어: 자영업자 비중은 1963년 37.2%에서 계속 하향 곡선을 그려왔다. 
       ↕
-    독일어: Der Anteil der Selbstständigen ist seit 1963 von 37,2 % weiter rückläufig.
+    독일어: Der Anteil der Selbstständigen ist seit 1963 von 37,2 % weiter rückläufig. (0.8827)
            (자영업자 비중은 1963년 37.2%에서 계속 하향 곡선을 그려왔다.)
-    독일어: Der Anteil der Lohnempfänger stieg deutlich von 31,5 % im Jahr 1963 auf 77,2 % in diesem Jahr.
-           (임금근로자 비중은 1963년 31.5%에서 올해 77.2%로 대폭 커졌다.)
+    독일어: Der Umsatz von TSMC belief sich im zweiten Quartal auf rund 27 Billionen Won, eine Steigerung von 32 % im Vergleich zum Vorjahreszeitraum. (0.2100)
+           (TSMC의 2분기 매출은 약 27조원으로 전년 동기 대비 32% 증가했다.) 
 ```
 
 **ⅴ. 기타 문제 해결**
@@ -299,7 +299,7 @@ KoAlpaca 1.1 예)
 ## 5. (교통사고 과실을 계산하는) 웹기반 한국어 LLM 개발 참여
 > 팀 프로젝트     
 > 역할: 교통사고 과실 상계 데이터 구축 (팀장)                                   
-> URL: [https://dag.snu.ac.kr/](https://dag.snu.ac.kr/)                           
+> URL: [https://dag.snu.ac.kr/](https://dag.snu.ac.kr/) (Demo)                          
               
 <img src="gif/accident.gif" width="480" height="280" alt="Accident">
 
@@ -312,20 +312,23 @@ KoAlpaca 1.1 예)
 
 **ⅱ. Instruction 데이터셋 구축**
 - 다양한 법률 분야 중 사용자의 일상 생활과 밀접한 **교통 사고 분야**를 선택했습니다.   
-- 기관으로부터 제공받은 판결문 등 자료를 이용해 '질문-응답' 구성의 **Instruction 데이터셋**을 구축했습니다. 
+- 기관으로부터 제공받은 판결문 등 자료를 이용해 '질문-응답' 구성의 **Instruction 데이터셋**을 구축했습니다.
+  - 판결문의 정형화된 구조를 이용해 **사고 사례**를 요약한 부분과 **판결 요지**를 추출했습니다.     
+  - 이후 팀원들과 함께 직접 내용을 검토하며 추출한 부분들을 '질문-응답' 구성으로 재구성했습니다. 
 ```
 예)
 ```
 
 **ⅲ. Instruction 데이터셋 확장**
-- 지식인의 교통 사고 관련 질문을 참고해 **질문의 문체**를 다양하게 구성했습니다.     
+- 지식인의 교통 사고 관련 질문을 참고해 **질문의 문체**를 다양하게 구성했습니다.
+  - 아아앙 자신을 
+  - 아아앙    
 - 과실 비율에 영향을 끼치는 **수정 요소**(예: 음주운전, 과속 등)를 기존 샘플에 추가해 데이터셋을 확장했습니다.     
 ```
 예)
 
 ```
-
-            
+          
 **ⅳ. 문제 해결**     
 - **직접 구축**한 데이터셋으로 LLM을 튜닝해 교통사고 과실에 관한 질문에 응답할 수 있도록 했습니다. 
 - **교통사고에 관한 지식**을 다룰 있도록 함으로써 기존에 공개된 LLM과 차별화된 한국어 LLM을 구축했습니다.    
