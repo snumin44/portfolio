@@ -10,7 +10,7 @@
 #### 📚 **COURSES**
 - Studies in Computational Linguistics 1 (Natural Language Processing) 
 - Studies in Computational Linguistics 2 (Transformer-based Pretrained Models and Prompt Tuning)
-- Seminar in Computational Linguistics (Training and Tuning of Large Language Models) [\[repo\]]()
+- Seminar in Computational Linguistics (Training and Tuning of Large Language Models) [\[repo\]](https://github.com/snumin44/HyDE-RAG)
 - Studies in Computational Linguistics 2 (Large Language Models and Linguistic Probing) [\[repo\]]()
 
 #### 📚 **ACTIVITIES**
