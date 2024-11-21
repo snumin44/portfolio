@@ -10,15 +10,15 @@
 #### 📚 **COURSES**
 - Studies in Computational Linguistics 1 (Natural Language Processing) 
 - Studies in Computational Linguistics 2 (Transformer-based Pretrained Models and Prompt Tuning)
-- Seminar in Computational Linguistics (Training and Tuning of Large Language Models)
-- Studies in Computational Linguistics 2 (Large Language Models and Linguistic Probing)
+- Seminar in Computational Linguistics (Training and Tuning of Large Language Models) [\[repo\]]()
+- Studies in Computational Linguistics 2 (Large Language Models and Linguistic Probing) [\[repo\]]()
 
 #### 📚 **ACTIVITIES**
 - Basic Computing: First Adventures in Computing 튜터 (2022.09 ~ 2022.12) 
 - Language Data Processing 조교 (2023.09 ~ 2024.08)
 - 경제·금융 분야에 특화된 언어 모델 개발 연구 참여 (시행기관: 한국은행, 2023.07 ~ 2023.12)
 - 한국어 의료·법률 문서의 의미적 검색 방법론 연구 참여 (시행기관: 서울대학교, 2022.09 ~ 2023.08)
-- BERT 기반 한국어 사전학습모델 확장과 한국어 문장 임베딩 KR-SBERT 구축 연구 참여(시행기관: 한국연구재단, 2022.07 ~ 2023.06)
+- BERT 기반 한국어 사전학습모델 확장과 한국어 문장 임베딩 KR-SBERT 구축 연구 참여 (시행기관: 한국연구재단, 2022.07 ~ 2023.06)
 
 #### 📚 **PROJECTS**
 - [1. (표현의 자유를 보장하는) **비속어 탐지 모델**](#1-표현의-자유를-보장하는-비속어-탐지-모델)
