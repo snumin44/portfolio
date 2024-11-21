@@ -417,4 +417,4 @@ __ⅳ. 대안 ③ : Seq2Seq__
 
 &nbsp;&nbsp;&nbsp;        
 &nbsp;&nbsp;&nbsp;        
-긴 글 읽어주셔서 감사합니다. 
+감사합니다. 🙋‍♂️ 
