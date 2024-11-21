@@ -36,7 +36,7 @@
 > 개인 프로젝트      
 > 언어: Python         
 > 기술 스택: Pytorch        
-> 모델 코드:           
+> 모델 코드: [https://github.com/snumin44/hate-speech-detection](https://github.com/snumin44/hate-speech-detection)           
 
 <img src="gif/hatespeech.gif" width="480" height="280" alt="Hate Speech Detection (Demo)">
 
