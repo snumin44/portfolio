@@ -11,7 +11,7 @@
 - Studies in Computational Linguistics 1 (Natural Language Processing) 
 - Studies in Computational Linguistics 2 (Transformer-based Pretrained Models and Prompt Tuning)
 - Seminar in Computational Linguistics (Training and Tuning of Large Language Models) [\[repo\]](https://github.com/snumin44/HyDE-RAG)
-- Studies in Computational Linguistics 2 (Large Language Models and Linguistic Probing) [\[repo\]]()
+- Studies in Computational Linguistics 2 (Large Language Models and Linguistic Probing) [\[repo\]](https://github.com/snumin44/Language-Neutrality-Probing)
 
 #### 📚 **ACTIVITIES**
 - Basic Computing: First Adventures in Computing 튜터 (2022.09 ~ 2022.12) 
@@ -36,8 +36,7 @@
 > 개인 프로젝트      
 > 언어: Python         
 > 기술 스택: Pytorch        
-> 모델 코드:          
-> 블로그:            
+> 모델 코드:           
 
 <img src="gif/hatespeech.gif" width="480" height="280" alt="Hate Speech Detection (Demo)">
 
@@ -108,7 +107,6 @@
 > 언어: Python         
 > 기술 스택: Pytorch, Faiss        
 > 모델 코드: [https://github.com/snumin44/SapBERT-KO-EN](https://github.com/snumin44/SapBERT-KO-EN)                
-> 블로그:      
 
 <img src="gif/medical_search.gif" width="480" height="280" alt="Medical Search Engine (Demo)">
 
@@ -176,8 +174,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 > 개인 프로젝트         
 > 언어: Python            
 > 기술 스택: Pytorch, Faiss         
-> 모델 코드: [https://github.com/snumin44/FinCSE-Multilingual](https://github.com/snumin44/FinCSE-Multilingual)                  
-> 블로그:            
+> 모델 코드: [https://github.com/snumin44/FinCSE-Multilingual](https://github.com/snumin44/FinCSE-Multilingual)                          
 
 <img src="gif/fintext_search.gif" width="480" height="270" alt="FinText Search Engine (Demo)">
 
@@ -234,8 +231,7 @@ pos_exp = torch.where(pos_mask > 0.0, pos_exp, torch.zeros_like(pos_exp))
 > 개인 프로젝트         
 > 언어: Python                
 > 기술 스택: Pytorch, Faiss       
-> 모델 코드: https://github.com/snumin44/DPR-KO/blob/main/example/generation.py                
-> 블로그:        
+> 모델 코드: https://github.com/snumin44/DPR-KO/blob/main/example/generation.py                   
 
 <img src="gif/korean_llm.gif" width="470" height="260" alt="Korean LLM">
 
@@ -363,8 +359,7 @@ KoAlpaca 1.1 예)
 > 개인 프로젝트            
 > 언어: Python           
 > 기술 스택: Pytorch             
-> 모델 코드:                        
-> 블로그:                                      
+> 모델 코드:                                                            
 
 총 네 가지 방법으로 Sequence Classification을 수행했습니다.                    
 일반적인 Classification 방법 외에도 MLM, Matching, Seq2Seq 방식을 통해 분류 문제를 해결했습니다.
