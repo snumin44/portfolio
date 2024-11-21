@@ -359,7 +359,7 @@ KoAlpaca 1.1 예)
 > 개인 프로젝트            
 > 언어: Python           
 > 기술 스택: Pytorch             
-> 모델 코드:                                                            
+> 모델 코드: [https://github.com/snumin44/topic-classification](https://github.com/snumin44/topic-classification)                                                           
 
 총 네 가지 방법으로 Sequence Classification을 수행했습니다.                    
 일반적인 Classification 방법 외에도 MLM, Matching, Seq2Seq 방식을 통해 분류 문제를 해결했습니다.
